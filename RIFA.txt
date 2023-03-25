@@ -1,0 +1,31 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string[] nombres = new string[10];
+        int[] numeros = new int[10];
+        Random rnd = new Random();
+
+        
+        for (int i = 0; i < nombres.Length; i++)
+        {
+            Console.Write("Ingrese el nombre " + (i + 1) + ": ");
+            nombres[i] = Console.ReadLine();
+            numeros[i] = i; 
+        }
+
+        
+        Console.WriteLine("¡Rifa! ¡Rifa!");
+        int ganador1 = rnd.Next(0, nombres.Length);
+        int ganador2 = rnd.Next(0, nombres.Length - 1);
+        if (ganador2 >= ganador1)
+        {
+            ganador2++;
+        }
+        Console.WriteLine("Los ganadores son: " + nombres[ganador1] + " y " + nombres[ganador2]);
+
+        Console.ReadKey();
+    }
+}
